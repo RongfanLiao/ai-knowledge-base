@@ -480,14 +480,42 @@ class KnowledgeBot:
         return format_help()
 
     def _handle_unknown(self, user_id: str, text: str) -> str:
-        """处理无法识别的意图。"""
-        return (
-            "🤔 我没有理解你的意思。\n\n"
-            "你可以试试：\n"
-            "- 搜索 MCP 协议\n"
-            "- /today 查看今日简报\n"
-            "- /help 查看完整命令列表"
+        """用 LLM + 知识库上下文回答自由提问。"""
+        # 先用关键词从知识库检索相关文章作为上下文
+        context_articles = self.search_engine.search(keyword=text, limit=5)
+
+        if context_articles:
+            context = "\n\n".join(
+                f"[{a['title']}]({a.get('url', '')})\n"
+                f"摘要: {a.get('summary', '无')}\n"
+                f"标签: {', '.join(a.get('tags', []))}\n"
+                f"日期: {a.get('collected_at', '')[:10]}"
+                for a in context_articles
+            )
+        else:
+            context = "（知识库中暂无相关内容）"
+
+        system_prompt = (
+            "你是 AI 知识库助手，专注于 AI/LLM/Agent 技术领域。\n"
+            "根据下方知识库内容回答用户问题。回答简洁（3-5 句），必须引用来源。\n"
+            "如果知识库中没有相关内容，如实说明，并给出简短的通用回答。\n\n"
+            f"## 知识库参考\n\n{context}"
         )
+
+        try:
+            from workflows.model_client import chat
+            response, usage = chat(prompt=text, system=system_prompt, max_tokens=500)
+            logger.info(f"[Bot] LLM 回答: tokens={usage}")
+            return response
+        except Exception as e:
+            logger.error(f"[Bot] LLM 调用失败: {e}")
+            return (
+                "🤔 暂时无法回答这个问题。\n\n"
+                "你可以试试：\n"
+                "- 搜索 <关键词>\n"
+                "- /today 查看今日简报\n"
+                "- /help 查看完整命令列表"
+            )
 
 
 # ============================================================

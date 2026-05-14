@@ -260,7 +260,8 @@ def _build_telegram_digest(date: str, articles: list[dict]) -> str:
 
         score_str = escape_md(f"{score:.1f}")  # MarkdownV2: 0.9 → 0\.9
         lines.append(f"{i}\\. [{title}]({url})")
-        lines.append(f"   {summary[:80]}{'\\.\\.\\.' if len(summary) > 80 else ''}")
+        ellipsis = '\\.\\.\\.' if len(summary) > 80 else ''
+        lines.append(f"   {summary[:80]}{ellipsis}")
         lines.append(f"   📊 {score_str} {tags}\n")
 
     return "\n".join(lines)

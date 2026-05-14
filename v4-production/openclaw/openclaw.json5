@@ -17,9 +17,9 @@
       },
       "feishu": {
         "enabled": true,
-        "app_id": "{env:FEISHU_APP_ID}",
-        "app_secret": "{env:FEISHU_APP_SECRET}",
-        "verification_token": "{env:FEISHU_VERIFICATION_TOKEN}",
+        "app_id": "{env:cli_aa8f8f7aad775bb5}",
+        "app_secret": "{env:zr1nDtBGicByZCLcqVmOPbiFBQz8oSN7}",
+        "verification_token": "{env:zr1nDtBGicByZCLcqVmOPbiFBQz8oSN7}",
         "webhook_path": "/webhook/feishu"
       }
     }

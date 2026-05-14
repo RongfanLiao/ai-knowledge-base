@@ -125,7 +125,52 @@ python -m pipeline.pipeline
 
 ---
 
-## 5. OpenClaw 网关（交互式 Bot）
+## 5. 飞书交互机器人
+
+飞书机器人支持双向互动：用户在飞书群/私聊中 @机器人 发消息，机器人自动回复。
+
+### 5.1 飞书开放平台配置
+
+1. 前往 [飞书开放平台](https://open.feishu.cn/) → 创建「企业自建应用」
+2. 在「凭证与基础信息」页获取 `App ID` 和 `App Secret`
+3. 在「事件订阅」页面：
+   - 请求地址填：`http://<你的公网IP>:9000/feishu/event`
+   - 获取 `Verification Token` 填入 `.env`
+   - 添加事件：`im.message.receive_v1`（接收消息）
+4. 在「权限管理」页面开通：
+   - `im:message` — 获取与发送单聊、群组消息
+   - `im:message:send_as_bot` — 以应用身份发送消息
+5. 发布应用版本，在目标群中添加此机器人
+
+### 5.2 启动服务
+
+```bash
+cd ~/ai-knowledge-base/v4-production
+
+# 配置 .env
+FEISHU_APP_ID=cli_xxx
+FEISHU_APP_SECRET=xxx
+FEISHU_VERIFICATION_TOKEN=xxx
+
+# 启动回调服务（默认端口 9000）
+python -m bot.feishu_server
+```
+
+### 5.3 用户交互示例
+
+在飞书群中 @机器人：
+
+| 用户发送 | 机器人回复 |
+|:---------|:-----------|
+| 今日简报 | 今日采集的文章列表 |
+| 搜索 MCP | 匹配「MCP」的知识条目 |
+| /top | 本周热门 Top 5 |
+| /help | 完整命令列表 |
+| 订阅 agent llm | 订阅标签（需管理员权限） |
+
+---
+
+## 6. OpenClaw 网关
 
 ```bash
 # 启动 OpenClaw 网关守护进程
@@ -143,7 +188,7 @@ OpenClaw 读取 `openclaw/openclaw.json5`（注意是 JSON5 不是 JSON），
 
 ---
 
-## 6. Docker 部署（生产）
+## 7. Docker 部署（生产）
 
 ```bash
 cd ~/ai-knowledge-base/v4-production
@@ -175,7 +220,7 @@ Cron 配置在 `docker-compose.yml` 的 pipeline 服务 command 字段里。
 
 ---
 
-## 7. 常见问题
+## 8. 常见问题
 
 ### Q1: V4 的 workflows/ 和 V3 的 workflows/ 是不是重复？
 
@@ -218,7 +263,7 @@ python3 -m pipeline.pipeline --no-publish
 
 ---
 
-## 8. V3 → V4 差异一览
+## 9. V3 → V4 差异一览
 
 | 维度 | V3 | V4 |
 |:-----|:---|:---|
@@ -235,7 +280,7 @@ python3 -m pipeline.pipeline --no-publish
 
 ---
 
-## 9. 端到端冒烟测试（~2 分钟）
+## 10. 端到端冒烟测试（~2 分钟）
 
 ```bash
 cd ~/ai-knowledge-base/v4-production
