@@ -6,7 +6,8 @@
 
 **AI Knowledge Base（AI 知识库）** 是一个自动化技术情报收集与分析系统。
 它持续追踪 GitHub Trending、Hacker News、arXiv 等来源，将分散的技术资讯
-转化为结构化、可检索的知识条目。
+转化为结构化、可检索的知识条目。GitHub Trending 和 arXiv 使用专用采集技能。
+Hacker News 由 Collector Agent 直接调用 API 采集。
 
 ### 核心价值
 - 每日自动采集 AI/LLM/Agent 领域的高质量技术文章与开源项目
@@ -27,6 +28,7 @@ v1-skeleton/
 │   │   └── organizer.md               # 整理 Agent 角色定义
 │   └── skills/
 │       ├── github-trending/SKILL.md   # GitHub Trending 采集技能
+│       ├── arxiv/SKILL.md             # arXiv 论文采集技能
 │       └── tech-summary/SKILL.md      # 技术摘要生成技能
 └── knowledge/
     ├── raw/                           # 原始采集数据（JSON）
@@ -53,6 +55,18 @@ v1-skeleton/
 - 代码、JSON 键名、文件名：英文
 - 摘要、分析、注释：中文
 - 标签（tags）：英文小写，用连字符分隔（如 `large-language-model`）
+
+### 日期与时间
+- 所有时间戳使用 UTC 时区，格式为 ISO 8601（`YYYY-MM-DDTHH:mm:ssZ`）
+- JSON 文件名中的 `{YYYY-MM-DD}` 基于 `collected_at` 的 UTC 日期，**不**跟随本地时区。\
+  例如：UTC 2026-03-17T18:00:00Z 对应 `github-trending-2026-03-17.json`，\
+  即使本地时间是 3 月 18 日凌晨 2 点。
+
+### 数据源与认证
+- GitHub API：使用 `GITHUB_TOKEN` 环境变量认证。该 token 由编排脚本或主 Agent
+  从 `.env` 文件加载后注入 Collector Agent 的请求头中。**禁止在对话中明文传递 token。**
+- Hacker News API：无需认证
+- arXiv API：无需认证，但需遵守每 10 秒最多 1 次请求的限流
 
 ## 工作流规则
 
@@ -96,3 +110,17 @@ v1-skeleton/
 - **数据源**：GitHub API v3、Hacker News API (firebase)
 - **输出格式**：JSON
 - **版本管理**：Git
+
+## Agent skills
+
+### Issue tracker
+
+Issues are tracked as local markdown files in `issues/`. See `docs/agents/issue-tracker.md`.
+
+### Triage labels
+
+Uses default label vocabulary: needs-triage, needs-info, ready-for-agent, ready-for-human, wontfix. See `docs/agents/triage-labels.md`.
+
+### Domain docs
+
+Single-context. See `docs/agents/domain.md`.
