@@ -1,0 +1,19 @@
+{
+  "id": "github-trending/veryyoldman/Genspark-AI",
+  "title": "Genspark-AI",
+  "source": "github-trending",
+  "url": "https://github.com/veryyoldman/Genspark-AI",
+  "collected_at": "2026-05-29T10:00:00Z",
+  "summary": "Genspark.ai 的开源自托管替代品，一个多 Agent 编排的超级智能体工作台。核心架构为 planner-executor 模式：Super Agent 将用户目标分解为 DAG 子任务，分派给研究、幻灯片、表格、代码、图像等专业 Agent，配备 80+ 工具（Web 搜索、代码执行、文件 I/O、图像/视频生成）。支持多 LLM 路由（OpenAI、Anthropic、Gemini、Ollama），提供 CLI、Web UI、REST API 和 Docker 部署。Windows 一键安装。",
+  "tags": ["agent-framework", "multi-agent", "python", "openai", "workflow-automation"],
+  "relevance_score": 0.74,
+  "score_breakdown": {
+    "tech_depth": 0.70,
+    "practical_value": 0.80,
+    "timeliness": 0.80,
+    "community_heat": 0.55,
+    "domain_match": 0.85
+  },
+  "stars": 223,
+  "language": "Python"
+}

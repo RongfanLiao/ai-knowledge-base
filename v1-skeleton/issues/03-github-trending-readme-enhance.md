@@ -1,5 +1,6 @@
 # Slice 3: 增强采集（README 预抓取）
 
+- **GitHub Issue**: #3
 - **Type**: AFK
 - **Labels**: ready-for-agent
 

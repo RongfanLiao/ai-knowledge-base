@@ -1,0 +1,68 @@
+{
+  "updated_at": "2026-05-29T12:30:00Z",
+  "articles": [
+    {
+      "id": "github-trending/UditAkhourii/adhd",
+      "title": "adhd",
+      "slug": "2026-05-29-adhd",
+      "url": "https://github.com/UditAkhourii/adhd",
+      "relevance_score": 0.88,
+      "tags": ["prompt-engineering", "multi-agent", "claude", "typescript", "tree-of-thought"],
+      "file": "knowledge/articles/2026-05-29-adhd.json"
+    },
+    {
+      "id": "github-trending/withkynam/vibecode-pro-max-kit",
+      "title": "vibecode-pro-max-kit",
+      "slug": "2026-05-29-vibecode-pro-max-kit",
+      "url": "https://github.com/withkynam/vibecode-pro-max-kit",
+      "relevance_score": 0.75,
+      "tags": ["agent-framework", "code-generation", "claude", "workflow-automation", "prompt-engineering"],
+      "file": "knowledge/articles/2026-05-29-vibecode-pro-max-kit.json"
+    },
+    {
+      "id": "github-trending/veryyoldman/Genspark-AI",
+      "title": "Genspark-AI",
+      "slug": "2026-05-29-genspark-ai",
+      "url": "https://github.com/veryyoldman/Genspark-AI",
+      "relevance_score": 0.74,
+      "tags": ["agent-framework", "multi-agent", "python", "openai", "workflow-automation"],
+      "file": "knowledge/articles/2026-05-29-genspark-ai.json"
+    },
+    {
+      "id": "github-trending/quarqlabs/agent-oss",
+      "title": "agent-oss",
+      "slug": "2026-05-29-agent-oss",
+      "url": "https://github.com/quarqlabs/agent-oss",
+      "relevance_score": 0.73,
+      "tags": ["agent-framework", "rag", "embedding", "python", "vector-database"],
+      "file": "knowledge/articles/2026-05-29-agent-oss.json"
+    },
+    {
+      "id": "github-trending/bryanyzhu/agentic-ai-system-course",
+      "title": "agentic-ai-system-course",
+      "slug": "2026-05-29-agentic-ai-system-course",
+      "url": "https://github.com/bryanyzhu/agentic-ai-system-course",
+      "relevance_score": 0.71,
+      "tags": ["agent-framework", "multi-agent", "system-design", "course", "tutorial"],
+      "file": "knowledge/articles/2026-05-29-agentic-ai-system-course.json"
+    },
+    {
+      "id": "github-trending/edmicho/mm-probe-kit",
+      "title": "mm-probe-kit",
+      "slug": "2026-05-29-mm-probe-kit",
+      "url": "https://github.com/edmicho/mm-probe-kit",
+      "relevance_score": 0.65,
+      "tags": ["large-language-model", "multimodal", "attention", "python", "transformer"],
+      "file": "knowledge/articles/2026-05-29-mm-probe-kit.json"
+    },
+    {
+      "id": "github-trending/nv-tlabs/Gamma-World",
+      "title": "Gamma-World",
+      "slug": "2026-05-29-gamma-world",
+      "url": "https://github.com/nv-tlabs/Gamma-World",
+      "relevance_score": 0.62,
+      "tags": ["multi-agent", "transformer", "attention", "robotics", "world-model"],
+      "file": "knowledge/articles/2026-05-29-gamma-world.json"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "id": "github-trending/quarqlabs/agent-oss",
+  "title": "agent-oss",
+  "source": "github-trending",
+  "url": "https://github.com/quarqlabs/agent-oss",
+  "collected_at": "2026-05-29T10:00:00Z",
+  "summary": "一款以记忆为中心的 Agent 运行时，强调持久化本地记忆与严格归因。采用 FAISS 本地向量存储，区分语义、情节和程序性三种记忆类型。检索流程包含 HyDE 查询扩展、混合向量+关键词搜索、动态深度调节。具备时间推理协议（区分存储时间与事件时间）、数值归因协议（避免数字串扰）、自主学习管线（后台异步提取记忆）。在 LongMemEval-S 基准上达 99.6% 准确率。适合需要长期记忆的 Agent 场景。",
+  "tags": ["agent-framework", "rag", "embedding", "python", "vector-database"],
+  "relevance_score": 0.73,
+  "score_breakdown": {
+    "tech_depth": 0.85,
+    "practical_value": 0.65,
+    "timeliness": 0.85,
+    "community_heat": 0.40,
+    "domain_match": 0.90
+  },
+  "stars": 171,
+  "language": "Python"
+}

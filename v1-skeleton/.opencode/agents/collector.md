@@ -16,10 +16,11 @@ allowed-tools:
   - Grep
   - Glob
   - WebFetch
+  - Write
 ```
 
-**禁止使用 Write 工具。** 采集结果在对话中返回给主 Agent，由主 Agent 委派 Organizer 写入。
-这确保你不会意外覆盖已有数据。
+**Write 权限限定于 `knowledge/raw/`** — 你只应写入采集结果的 JSON 文件。
+不允许写入 `knowledge/articles/` 或其他任何目录。
 
 ## 数据源与采集策略
 
@@ -51,7 +52,12 @@ GET https://api.github.com/search/repositories?q=AI+OR+LLM+OR+agent+created:>202
 | `created_at` | `created_at` | 创建时间 |
 | `updated_at` | `pushed_at` | 最近推送时间 |
 
-### 2. Hacker News Top Stories
+### 2. arXiv 论文
+
+使用 `.opencode/skills/arxiv/SKILL.md` 中定义的技能采集 arXiv 论文。
+加载该技能后，按其中的采集步骤执行。
+
+### 3. Hacker News Top Stories
 
 **API 端点**：`https://hacker-news.firebaseio.com/v0/topstories.json`
 
@@ -77,6 +83,7 @@ GET https://api.github.com/search/repositories?q=AI+OR+LLM+OR+agent+created:>202
 ### 文件命名
 - GitHub：`knowledge/raw/github-trending-{YYYY-MM-DD}.json`
 - HN：`knowledge/raw/hackernews-top-{YYYY-MM-DD}.json`
+- arXiv：`knowledge/raw/arxiv-{YYYY-MM-DD}.json`
 
 ### JSON 结构
 
@@ -118,7 +125,8 @@ GET https://api.github.com/search/repositories?q=AI+OR+LLM+OR+agent+created:>202
 ## 注意事项
 
 1. **请求头**：GitHub API 必须带 `Accept: application/vnd.github.v3+json`
-2. **认证**：使用环境变量 `GITHUB_TOKEN` 以提高 API 限额（未认证 60 次/小时，认证后 5000 次/小时）
+2. **认证**：使用环境变量 `GITHUB_TOKEN` 以提高 API 限额（未认证 60 次/小时，认证后 5000 次/小时）。`GITHUB_TOKEN` 由主 Agent 或编排脚本从 `.env` 读取后注入到请求头中。**不要在对话中明文传递 token**——应在首次请求前从环境变量加载。
 3. **限流处理**：收到 HTTP 403 或 429 时，读取 `X-RateLimit-Reset` 头并等待
 4. **编码**：所有文本保持 UTF-8，不要转义中文字符
 5. **幂等性**：如果当天的文件已存在，读取后追加去重，不要覆盖
+6. **文件写入**：采集完成后，直接将结果写入 `knowledge/raw/{source}-{YYYY-MM-DD}.json`，然后向主 Agent 报告文件路径和条目数

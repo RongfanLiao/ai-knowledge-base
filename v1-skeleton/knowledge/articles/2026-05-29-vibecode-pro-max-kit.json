@@ -1,0 +1,19 @@
+{
+  "id": "github-trending/withkynam/vibecode-pro-max-kit",
+  "title": "vibecode-pro-max-kit",
+  "source": "github-trending",
+  "url": "https://github.com/withkynam/vibecode-pro-max-kit",
+  "collected_at": "2026-05-29T10:00:00Z",
+  "summary": "面向 Vibe Coding 的 Spec-Driven 开发工具集，12 个专用 Agent + 32 个 Skill + 7 个生命周期钩子。核心工作流为 RIPER-5：Research → Innovate → Plan → Execute → Update，每个阶段锁定工具权限（Research 阶段只读，不可写代码）。具备相锁定安全防护、自动技能发现、上下文持久化（抵抗上下文压缩丢失状态）、质量流水线（自审→测试→代码评审→简化→安全审计→提交）。支持 Claude Code、Codex、Cursor 等 7 个编码工具。",
+  "tags": ["agent-framework", "code-generation", "claude", "workflow-automation", "prompt-engineering"],
+  "relevance_score": 0.75,
+  "score_breakdown": {
+    "tech_depth": 0.70,
+    "practical_value": 0.75,
+    "timeliness": 0.85,
+    "community_heat": 0.60,
+    "domain_match": 0.85
+  },
+  "stars": 283,
+  "language": "JavaScript"
+}

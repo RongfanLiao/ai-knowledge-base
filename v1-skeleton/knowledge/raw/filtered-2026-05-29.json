@@ -1,0 +1,43 @@
+{
+  "date": "2026-05-29",
+  "source": "github-trending",
+  "filtered_at": "2026-05-29T12:30:00Z",
+  "total_discarded": 7,
+  "items": [
+    {
+      "id": "realrossmanngroup/no_ai_slop_writing_rules",
+      "title": "no_ai_slop_writing_rules",
+      "reason": "relevance_score 0.42 < 0.6"
+    },
+    {
+      "id": "okturro/asr-rescore-bench",
+      "title": "asr-rescore-bench",
+      "reason": "relevance_score 0.50 < 0.6"
+    },
+    {
+      "id": "kppox/video-frame-sampler",
+      "title": "video-frame-sampler",
+      "reason": "relevance_score 0.52 < 0.6"
+    },
+    {
+      "id": "sitodowubb/spatial-vqa-bench",
+      "title": "spatial-vqa-bench",
+      "reason": "relevance_score 0.55 < 0.6"
+    },
+    {
+      "id": "JasonLam08/cursor_agent_status_light",
+      "title": "cursor_agent_status_light",
+      "reason": "relevance_score 0.47 < 0.6"
+    },
+    {
+      "id": "uu201/character-arc",
+      "title": "character-arc",
+      "reason": "relevance_score 0.54 < 0.6"
+    },
+    {
+      "id": "aa0101181514/tw-legal-rag",
+      "title": "tw-legal-rag",
+      "reason": "relevance_score 0.59 < 0.6"
+    }
+  ]
+}

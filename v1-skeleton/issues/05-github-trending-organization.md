@@ -1,5 +1,6 @@
 # Slice 5: 整理归档与去重
 
+- **GitHub Issue**: #5
 - **Type**: AFK
 - **Labels**: ready-for-agent
 

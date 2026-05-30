@@ -28,13 +28,22 @@ allowed-tools:
 ### 第一步：加载与验证
 
 1. 读取 `knowledge/raw/` 下当天所有已分析的 JSON 文件（含 `analyzed_at` 字段的条目）
-2. 验证每个条目的必填字段完整性：
+2. 尝试读取 `knowledge/articles/index.json`。如果文件不存在（首次运行冷启动），
+   初始化为：
+   ```json
+   {
+     "last_updated": "",
+     "total_count": 0,
+     "entries": []
+   }
+   ```
+3. 验证每个条目的必填字段完整性：
 
 ```
 必填字段：id, title, url, summary, relevance_score, tags, analyzed_at
 ```
 
-3. 缺少任何必填字段的条目 → 标记为 `status: "incomplete"`，写入日志但不归档
+4. 缺少任何必填字段的条目 → 标记为 `status: "incomplete"`，写入日志但不归档
 
 ### 第二步：质量过滤
 
@@ -57,6 +66,10 @@ allowed-tools:
 2. **模糊匹配**：`title` 相似度 > 90%（忽略大小写和标点）→ 跳过
 3. 去重结果记入过滤日志
 
+**跨次幂等**：同时读取 `knowledge/raw/filtered-*.json` 中被丢弃条目的 `url`，
+如果当天被丢弃的条目在后续运行中再次出现，也跳过不做重复处理。
+这确保低分条目不会反复进入 Organizer 流程。
+
 ### 第四步：格式化为知识条目
 
 将通过过滤的条目转换为标准格式：
@@ -78,8 +91,10 @@ allowed-tools:
 }
 ```
 
-**ID 生成规则**：`kb-{YYYY-MM-DD}-{三位序号}`，当天内递增。
-如果当天已有条目，从最大序号 + 1 开始。
+**ID 生成规则**：`kb-{YYYY-MM-DD}-{三位序号}`，当天内所有数据源**统一递增**。
+即：先读取当天所有已分析的原始文件（github-trending + hackernews-top + arxiv 等），
+将所有条目合并后再统一编号。如果 index.json 中当天已有条目，从最大序号 + 1 开始。
+举例：github-trending 18 条 → 001-018，hackernews-top 12 条 → 019-030，arxiv 8 条 → 031-038。
 
 ### 第五步：写入文件
 

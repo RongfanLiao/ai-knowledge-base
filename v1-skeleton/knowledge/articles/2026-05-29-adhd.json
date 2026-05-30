@@ -1,0 +1,19 @@
+{
+  "id": "github-trending/UditAkhourii/adhd",
+  "title": "adhd",
+  "source": "github-trending",
+  "url": "https://github.com/UditAkhourii/adhd",
+  "collected_at": "2026-05-29T10:00:00Z",
+  "summary": "为编码 Agent 设计的发散思维技能。核心创新是从架构层面解决自回归模型的过早收敛问题：发散阶段启动 N 个隔离推理过程（各带不同认知框架），零上下文共享避免锚定效应；收敛阶段由独立 Critic 评分、聚类、剪枝陷阱并深化优胜方案。基于 Claude Agent SDK 构建，安装即可通过 /adhd 命令调用。评估显示陷阱检测比基线提升 5.2 倍，被 The New Stack 专题报道。适用于设计决策、API 命名、模糊调试等需要发散思考的任务。",
+  "tags": ["prompt-engineering", "multi-agent", "claude", "typescript", "tree-of-thought"],
+  "relevance_score": 0.88,
+  "score_breakdown": {
+    "tech_depth": 0.90,
+    "practical_value": 0.85,
+    "timeliness": 0.95,
+    "community_heat": 0.80,
+    "domain_match": 0.90
+  },
+  "stars": 472,
+  "language": "TypeScript"
+}

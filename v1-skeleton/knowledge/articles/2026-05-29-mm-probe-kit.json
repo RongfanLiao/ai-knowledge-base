@@ -1,0 +1,19 @@
+{
+  "id": "github-trending/edmicho/mm-probe-kit",
+  "title": "mm-probe-kit",
+  "source": "github-trending",
+  "url": "https://github.com/edmicho/mm-probe-kit",
+  "collected_at": "2026-05-29T10:00:00Z",
+  "summary": "小型可 Hack 的多模态 LLM 探测工具包。支持在 LLaVA、Qwen-VL、BLIP-2、InternVL 等主流多模态模型上提取注意力图、隐藏状态、跨模态对齐分数和因果追踪。架构简洁：load_model 封装 HF 接口 → HookManager 注册前向钩子 → 各探针函数返回张量。提供 CLI 和 YAML 配置，适合需要「窥视」多模态模型内部机制的研究者快速实验。",
+  "tags": ["large-language-model", "multimodal", "attention", "python", "transformer"],
+  "relevance_score": 0.65,
+  "score_breakdown": {
+    "tech_depth": 0.80,
+    "practical_value": 0.55,
+    "timeliness": 0.80,
+    "community_heat": 0.40,
+    "domain_match": 0.60
+  },
+  "stars": 163,
+  "language": "Python"
+}

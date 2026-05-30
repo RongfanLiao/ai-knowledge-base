@@ -41,7 +41,9 @@ allowed-tools:
 - **关键技术点**：提及的核心技术、架构、算法（如有）
 - **适用场景**：谁会用到、什么场景下有用
 
-如果条目有 URL，使用 WebFetch 获取更多上下文信息（README、文章正文等），
+如果条目有 URL，首先检查条目中是否已包含 `readme_excerpt` 字段（由 Collector 预抓取）。
+如有，直接使用该字段作为上下文，**不需要再发起 WebFetch**。
+如没有，再使用 WebFetch 获取更多上下文信息（README、文章正文等），
 以提高摘要质量。如果 WebFetch 失败，基于已有信息生成摘要即可。
 
 #### 2.2 相关性评分
@@ -60,6 +62,9 @@ allowed-tools:
 ```
 relevance_score = tech_depth * 0.25 + practical_value * 0.30 + timeliness * 0.20 + community_heat * 0.15 + domain_match * 0.10
 ```
+
+**豁免规则**：如果 `tech_depth >= 0.85`，时效性得分自动设为 0.20（满分），
+防止高技术价值但发布较早的条目因时效性过低被拖入 < 0.6 的范围。
 
 分数保留两位小数，范围 0.00 - 1.00。
 

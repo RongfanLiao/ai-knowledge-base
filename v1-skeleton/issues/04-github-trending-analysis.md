@@ -1,5 +1,6 @@
 # Slice 4: 分析与评分
 
+- **GitHub Issue**: #4
 - **Type**: AFK
 - **Labels**: ready-for-agent
 

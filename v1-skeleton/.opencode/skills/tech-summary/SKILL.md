@@ -67,6 +67,9 @@ description: When you need to analyze and summarize collected tech articles
 | 社区热度 | 0.15 | GitHub: >1K Stars 高, >100 中, <100 低; HN: >200 高, >50 中 |
 | 领域匹配 | 0.10 | Agent/LLM 核心 > AI 相关 > 泛技术 |
 
+**豁免规则**：如果 `tech_depth >= 0.85`，时效性得分自动设为 0.20（满分），
+防止高技术价值但发布较早的条目因时效性过低被拖入 < 0.6 的范围。
+
 ### 5. 提取标签
 
 为每个条目生成 3-5 个标签：
@@ -77,7 +80,8 @@ description: When you need to analyze and summarize collected tech articles
 - 工具：`langchain`, `llamaindex`, `openai`, `anthropic`, `deepseek`, `huggingface`
 - 场景：`chatbot`, `code-assistant`, `data-analysis`, `document-qa`, `workflow-automation`
 
-如果条目涉及词库中没有的概念，可以新增标签，但必须遵循小写连字符格式。
+**标签规范**：必须从词库中选择，不得自由创造同义词（如必须用 `large-language-model`，不可用 `llm` 或 `LLM`）。
+如果条目涉及词库中没有的概念，可以新增标签，但必须遵循小写连字符格式，并确保不与其他已有标签含义重复。
 
 ### 6. 输出格式
 

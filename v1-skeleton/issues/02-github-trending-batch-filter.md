@@ -1,5 +1,6 @@
 # Slice 2: 批量采集与过滤
 
+- **GitHub Issue**: #2
 - **Type**: AFK
 - **Labels**: ready-for-agent
 

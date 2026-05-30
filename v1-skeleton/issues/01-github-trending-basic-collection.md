@@ -1,5 +1,6 @@
 # Slice 1: GitHub Trending 基础采集端到端
 
+- **GitHub Issue**: #1
 - **Type**: AFK
 - **Labels**: ready-for-agent
 

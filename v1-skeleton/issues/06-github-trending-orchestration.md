@@ -1,5 +1,6 @@
 # Slice 6: 全自动编排流水线
 
+- **GitHub Issue**: #6
 - **Type**: HITL
 - **Labels**: ready-for-human
 

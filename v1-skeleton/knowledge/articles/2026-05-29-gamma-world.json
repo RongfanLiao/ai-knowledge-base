@@ -1,0 +1,19 @@
+{
+  "id": "github-trending/nv-tlabs/Gamma-World",
+  "title": "Gamma-World",
+  "source": "github-trending",
+  "url": "https://github.com/nv-tlabs/Gamma-World",
+  "collected_at": "2026-05-29T10:00:00Z",
+  "summary": "NVIDIA 提出的生成式多智能体世界模型，支持两个以上独立可控 Agent 在共享环境中交互。核心技术：Simplex Rotary Agent Encoding（将 Agent 身份编码为正单形体顶点，实现置换对称）、Sparse Hub Attention（通过可学习的 Hub Token 将跨 Agent 注意力从 O(N²) 降至 O(N)）、蒸馏因果学生模型实现 24 FPS 实时流式生成。零样本从双人泛化到四人场景，也适用于多机器人协调。",
+  "tags": ["multi-agent", "transformer", "attention", "robotics", "world-model"],
+  "relevance_score": 0.62,
+  "score_breakdown": {
+    "tech_depth": 0.95,
+    "practical_value": 0.30,
+    "timeliness": 0.90,
+    "community_heat": 0.40,
+    "domain_match": 0.50
+  },
+  "stars": 164,
+  "language": "N/A"
+}

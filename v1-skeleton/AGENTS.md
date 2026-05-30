@@ -115,7 +115,7 @@ v1-skeleton/
 
 ### Issue tracker
 
-Issues are tracked as local markdown files in `issues/`. See `docs/agents/issue-tracker.md`.
+Issues are tracked as GitHub issues. See `docs/agents/issue-tracker.md`.
 
 ### Triage labels
 

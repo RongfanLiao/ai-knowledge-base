@@ -1,0 +1,19 @@
+{
+  "id": "github-trending/bryanyzhu/agentic-ai-system-course",
+  "title": "agentic-ai-system-course",
+  "source": "github-trending",
+  "url": "https://github.com/bryanyzhu/agentic-ai-system-course",
+  "collected_at": "2026-05-29T10:00:00Z",
+  "summary": "22 章的 Agentic System 骨架课程，涵盖如何设计、构建和运维生产级 AI Agent。课程结构按主题渐进：基础（工具调用→Agent 循环→提示词）→记忆与状态→编排（规划→多 Agent 委托）→外部接口（HITL/MCP）→生产化（可观测性/成本）→Agent 自主进化。附带内建 agentic-system-reviewer 技能，可对任意 Agent 系统给出基于课程体系的评审意见。适合想系统学习 Agent 架构但不知从何入手的开发者。",
+  "tags": ["agent-framework", "multi-agent", "system-design", "course", "tutorial"],
+  "relevance_score": 0.71,
+  "score_breakdown": {
+    "tech_depth": 0.60,
+    "practical_value": 0.70,
+    "timeliness": 0.85,
+    "community_heat": 0.55,
+    "domain_match": 0.95
+  },
+  "stars": 287,
+  "language": "JavaScript"
+}
